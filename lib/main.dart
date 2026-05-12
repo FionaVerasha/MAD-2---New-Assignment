@@ -93,7 +93,7 @@ class _MyAppState extends State<MyApp> {
         0xFFF1F8E9,
       ), // Light green background
       appBarTheme: const AppBarTheme(
-        backgroundColor: Color(0xFF477856), // New Forest Green
+        backgroundColor: Color(0xFF568F66), // Lighter Forest Green
         foregroundColor: Colors.white,
         elevation: 1,
         centerTitle: false,
@@ -111,7 +111,7 @@ class _MyAppState extends State<MyApp> {
       brightness: Brightness.dark,
       scaffoldBackgroundColor: const Color(0xFF1B5E20), // Very dark green
       appBarTheme: const AppBarTheme(
-        backgroundColor: Color(0xFF477856),
+        backgroundColor: Color(0xFF568F66),
         foregroundColor: Colors.white,
       ),
       colorScheme: ColorScheme.fromSeed(

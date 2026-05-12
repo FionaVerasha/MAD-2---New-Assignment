@@ -47,6 +47,7 @@ class _HomePageState extends State<HomePage> {
           : const Color(0xFFE8F0E6),
       appBar: AppBar(
         centerTitle: false,
+        titleSpacing: 0.0,
         title: const BrandLogo(height: 55),
         actions: [
           IconButton(
@@ -467,7 +468,7 @@ class _HomePageState extends State<HomePage> {
                           children: [
                             Container(
                               padding: const EdgeInsets.all(10),
-                              color: Colors.grey[100],
+                              color: Colors.grey[200], // Darker grey as requested
                               height: 100,
                               child: ProductImage(url: p.imageUrl),
                             ),
