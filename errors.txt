@@ -1,0 +1,17 @@
+﻿Analyzing whisker...                                            
+
+   info - Don't use 'BuildContext's across async gaps - lib\home_page.dart:34:42 - use_build_context_synchronously
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\home_page.dart:169:44 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\landing_page.dart:141:60 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\landing_page.dart:149:60 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\landing_page.dart:177:35 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\landing_page.dart:186:35 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\landing_page.dart:195:35 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\landing_page.dart:235:41 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\productdetail_page.dart:79:56 - deprecated_member_use
+   info - Don't use 'BuildContext's across async gaps - lib\shop_page.dart:31:42 - use_build_context_synchronously
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\shop_page.dart:165:35 - deprecated_member_use
+   info - 'dart:html' is deprecated and shouldn't be used. Use package:web and dart:js_interop instead - lib\widgets\product_image_web.dart:2:1 - deprecated_member_use
+   info - 'dart:html' is deprecated and shouldn't be used. Use package:web and dart:js_interop instead - lib\widgets\web_image_registry.dart:5:1 - deprecated_member_use
+  error - The setter 'loading' isn't defined for the type 'ImageElement' - lib\widgets\web_image_registry.dart:32:13 - undefined_setter
+
