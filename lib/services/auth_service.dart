@@ -45,6 +45,37 @@ class AuthService {
     }
   }
 
+  Future<User> register({
+    required String name,
+    required String email,
+    required String password,
+    required String passwordConfirmation,
+    String deviceName = 'flutter',
+  }) async {
+    try {
+      final registerResponse = await _apiClient.dio.post(
+        'https://whisker-cart.onrender.com/api/register',
+        data: {
+          'name': name,
+          'email': email,
+          'password': password,
+          'password_confirmation': passwordConfirmation,
+          'device_name': deviceName,
+        },
+      );
+
+      final token = registerResponse.data['token'];
+      await _tokenStorage.saveToken(token);
+
+      final user = await fetchMe();
+      await _userStorage.saveUser(user);
+
+      return user;
+    } on DioException catch (e) {
+      throw _handleDioError(e);
+    }
+  }
+
   Future<User> fetchMe() async {
     try {
       final response = await _apiClient.dio.get('/api/user');
