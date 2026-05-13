@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import 'cart_manager.dart';
 import 'providers/auth_provider.dart';
@@ -38,27 +37,35 @@ class MyApp extends StatefulWidget {
   State<MyApp> createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
-  bool _isDarkMode = false;
+class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
+  Brightness _platformBrightness =
+      WidgetsBinding.instance.platformDispatcher.platformBrightness;
+
+  bool get _isDarkMode => _platformBrightness == Brightness.dark;
 
   @override
   void initState() {
     super.initState();
-    _loadThemePreference();
+    WidgetsBinding.instance.addObserver(this);
   }
 
-  Future<void> _loadThemePreference() async {
-    final prefs = await SharedPreferences.getInstance();
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangePlatformBrightness() {
     setState(() {
-      _isDarkMode = prefs.getBool('isDarkMode') ?? false;
+      _platformBrightness =
+          WidgetsBinding.instance.platformDispatcher.platformBrightness;
     });
   }
 
-  Future<void> _toggleTheme(bool value) async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setBool('isDarkMode', value);
+  void _toggleTheme(bool value) {
     setState(() {
-      _isDarkMode = value;
+      _platformBrightness = value ? Brightness.dark : Brightness.light;
     });
   }
 

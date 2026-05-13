@@ -37,6 +37,14 @@ class _HomePageState extends State<HomePage> {
   }
 
   @override
+  void didUpdateWidget(covariant HomePage oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.isDarkMode != widget.isDarkMode) {
+      isDarkMode = widget.isDarkMode;
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     final cart = Provider.of<CartManager>(context);
     final productProvider = Provider.of<ProductProvider>(context);
@@ -131,7 +139,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _buildHero() {
-    return Container(
+    return SizedBox(
       height: 300,
       width: double.infinity,
       child: Stack(
@@ -145,7 +153,7 @@ class _HomePageState extends State<HomePage> {
           ),
           // Dark Overlay for text readability
           Positioned.fill(
-            child: Container(color: Colors.black.withOpacity(0.3)),
+            child: Container(color: Colors.black.withValues(alpha: 0.3)),
           ),
           // Text Content
           Padding(
@@ -245,7 +253,7 @@ class _HomePageState extends State<HomePage> {
                     color: isDarkMode ? Colors.grey[900] : Colors.white,
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.2),
+                        color: Colors.black.withValues(alpha: 0.2),
                         blurRadius: 10,
                         offset: const Offset(0, 5),
                       ),
@@ -468,7 +476,8 @@ class _HomePageState extends State<HomePage> {
                           children: [
                             Container(
                               padding: const EdgeInsets.all(10),
-                              color: Colors.grey[200], // Darker grey as requested
+                              color:
+                                  Colors.grey[200], // Darker grey as requested
                               height: 100,
                               child: ProductImage(url: p.imageUrl),
                             ),

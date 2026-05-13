@@ -31,8 +31,8 @@ class _ProfilePageState extends State<ProfilePage> {
     final user = auth.currentUser;
 
     final backgroundColor = widget.isDarkMode
-        ? const Color(0xFF121212) // Black background
-        : const Color(0xFFF1F8E9); // Light green theme
+        ? const Color(0xFF1B5E20)
+        : const Color(0xFFE8F0E6);
 
     return Scaffold(
       backgroundColor: backgroundColor,
@@ -200,50 +200,77 @@ class _ProfilePageState extends State<ProfilePage> {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.only(top: 60, bottom: 30),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: widget.isDarkMode
+              ? const [Color(0xFF2E7D32), Color(0xFF1B5E20)]
+              : const [Color(0xFFC8E6C9), Color(0xFFE8F0E6)],
+        ),
+      ),
       child: Center(
-        child: Stack(
+        child: Column(
           children: [
-            Container(
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                border: Border.all(color: Colors.black12, width: 2),
-              ),
-              child: CircleAvatar(
-                radius: 60,
-                backgroundColor: widget.isDarkMode
-                    ? Colors.grey[800]
-                    : Colors.grey[200],
-                child: Icon(
-                  Icons.person,
-                  size: 70,
-                  color: widget.isDarkMode ? Colors.white70 : Colors.grey[600],
-                ),
-              ),
-            ),
-            Positioned(
-              bottom: 0,
-              right: 0,
-              child: Container(
-                padding: const EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  color: widget.isDarkMode ? Colors.grey[850] : Colors.white,
-                  shape: BoxShape.circle,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.1),
-                      blurRadius: 8,
-                      offset: const Offset(0, 2),
+            Stack(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(color: Colors.black12, width: 2),
+                  ),
+                  child: CircleAvatar(
+                    radius: 60,
+                    backgroundColor: widget.isDarkMode
+                        ? Colors.grey[800]
+                        : Colors.grey[200],
+                    child: Icon(
+                      Icons.person,
+                      size: 70,
+                      color: widget.isDarkMode
+                          ? Colors.white70
+                          : Colors.grey[600],
                     ),
-                  ],
+                  ),
                 ),
-                child: const Icon(
-                  Icons.camera_alt,
-                  size: 24,
-                  color: Color(
-                    0xFF477856,
-                  ), // Using your brand green for the icon
+                Positioned(
+                  bottom: 0,
+                  right: 0,
+                  child: Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      color: widget.isDarkMode
+                          ? Colors.grey[850]
+                          : Colors.white,
+                      shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withValues(alpha: 0.1),
+                          blurRadius: 8,
+                          offset: const Offset(0, 2),
+                        ),
+                      ],
+                    ),
+                    child: const Icon(
+                      Icons.camera_alt,
+                      size: 24,
+                      color: Color(
+                        0xFF477856,
+                      ), // Using your brand green for the icon
+                    ),
+                  ),
                 ),
+              ],
+            ),
+            const SizedBox(height: 14),
+            Text(
+              user?.name ?? 'Guest User',
+              style: TextStyle(
+                color: widget.isDarkMode ? Colors.white : Colors.black87,
+                fontSize: 20,
+                fontWeight: FontWeight.w700,
               ),
+              textAlign: TextAlign.center,
             ),
           ],
         ),
@@ -258,7 +285,7 @@ class _ProfilePageState extends State<ProfilePage> {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.03),
+            color: Colors.black.withValues(alpha: 0.03),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
