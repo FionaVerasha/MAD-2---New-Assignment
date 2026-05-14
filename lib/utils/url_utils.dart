@@ -7,6 +7,11 @@ String resolveImageUrl(String? raw) {
   String path = raw.trim();
   if (path.isEmpty) return "";
 
+  // Keep bundled Flutter assets as local paths for offline fallback data.
+  if (path.startsWith("assets/")) {
+    return path;
+  }
+
   // 2. If it is already an absolute URL, return it
   if (path.startsWith("http://") || path.startsWith("https://")) {
     return path;

@@ -7,6 +7,10 @@ Widget getPlatformProductImage({
   double? height,
   required BoxFit fit,
 }) {
+  if (url.startsWith('assets/')) {
+    return Image.asset(url, width: width, height: height, fit: fit);
+  }
+
   return Image.network(
     url,
     width: width,

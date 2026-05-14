@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1001,
+    "name": "Whiskas Adult Cat Food",
+    "description": "Complete and balanced dry food for adult cats with essential vitamins and minerals.",
+    "price": 3250.0,
+    "image": "assets/images/Whiskas.png",
+    "category": "Cat Supplies"
+  },
+  {
+    "id": 1002,
+    "name": "SmartHeart Dog Food",
+    "description": "Nutritious dog food formulated for daily energy, healthy coat, and strong muscles.",
+    "price": 4850.0,
+    "image": "assets/images/smartheart.png",
+    "category": "Dog Supplies"
+  },
+  {
+    "id": 1003,
+    "name": "Pet Bed",
+    "description": "Soft washable bed designed to keep pets comfortable during naps and overnight rest.",
+    "price": 2750.0,
+    "image": "assets/images/pet_bed.png",
+    "category": "Accessories"
+  },
+  {
+    "id": 1004,
+    "name": "Scratching Post",
+    "description": "Durable scratching post that helps cats stretch, play, and protect furniture.",
+    "price": 3900.0,
+    "image": "assets/images/scratchingpost.png",
+    "category": "Cat Supplies"
+  },
+  {
+    "id": 1005,
+    "name": "Pet Shampoo and Conditioner",
+    "description": "Gentle grooming shampoo and conditioner for a clean coat and fresh scent.",
+    "price": 1450.0,
+    "image": "assets/images/shampoo&conditioner.png",
+    "category": "Grooming"
+  },
+  {
+    "id": 1006,
+    "name": "Pet Toy Set",
+    "description": "Assorted toys for interactive play, chewing, and daily enrichment.",
+    "price": 1200.0,
+    "image": "assets/images/pet_toy.png",
+    "category": "Accessories"
+  }
+]

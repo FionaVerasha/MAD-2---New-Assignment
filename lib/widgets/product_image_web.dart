@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 // ignore: avoid_web_libraries_in_flutter
 import 'dart:html' as html;
 import 'dart:ui_web' as ui;
@@ -10,6 +12,10 @@ Widget getPlatformProductImage({
   double? height,
   required BoxFit fit,
 }) {
+  if (url.startsWith('assets/')) {
+    return Image.asset(url, width: width, height: height, fit: fit);
+  }
+
   // Use a unique viewType based on the URL to avoid collisions
   final String viewType =
       'img-${base64.encode(utf8.encode(url)).replaceAll('=', '')}';
